@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PARLE | Est. 1929</title>
+  <meta name="description" content="The House of Parle. Crafted in Mumbai since 1929." />
+  
+  <!-- Google Fonts: Cormorant Garamond, Plus Jakarta Sans, Space Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS v4 Browser Runtime for shadcn Conveyor Component -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @theme {
+      --color-background: #FFFFFF;
+      --color-foreground: #1A130E;
+      --color-card: #FAF7F2;
+      --color-card-foreground: #1A130E;
+      --color-muted: #F3EDE2;
+      --color-muted-foreground: #6E5D4F;
+      --color-border: rgba(181, 115, 25, 0.25);
+      --color-ring: #B8292F;
+      --color-chart-1: #B8292F;
+      --color-chart-2: #D89B3C;
+      --color-chart-3: #8E4716;
+      --color-chart-4: #4B2814;
+      --color-chart-5: #1F8A4C;
+      --animate-marquee: marquee var(--duration, 40s) infinite linear;
+      --animate-marquee-vertical: marquee-vertical var(--duration, 40s) linear infinite;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(calc(-100% - var(--gap, 1rem)));
+      }
+    }
+
+    @keyframes marquee-vertical {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(calc(-100% - var(--gap, 1rem)));
+      }
+    }
+  </style>
+
+  <link rel="stylesheet" href="styles.css?v=28" />
+</head>
+<body>
+
+  <!-- Subtle Film Grain Overlay -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- Custom Magnetic Cursor -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"><span id="cursor-label">VIEW</span></div>
+
+  <!-- ========================================================================
+       PRELOADER: MINIMAL 1929 VAULT OPENING
+       ======================================================================== -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-center">
+      <div class="preloader-year" id="preloader-year">1929</div>
+      <div class="preloader-bar-wrap">
+        <div class="preloader-bar" id="preloader-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MINIMAL NAVIGATION HEADER
+       ======================================================================== -->
+  <header class="site-header" id="site-header">
+    <a href="#top" class="brand-mark" data-cursor="HOME">
+      <svg class="brand-seal" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="6" y="16" width="68" height="48" rx="8" fill="#B8292F" stroke="#F1C47B" stroke-width="2"/>
+        <text x="40" y="47" text-anchor="middle" fill="#F8F3E8" font-family="Cormorant Garamond, Georgia, serif" font-weight="700" font-size="19" letter-spacing="3">PARLE</text>
+      </svg>
+      <span class="brand-title">Parle</span>
+    </a>
+
+    <nav aria-label="Primary Navigation">
+      <ul class="nav-links">
+        <li><a href="#anatomy" data-cursor="CRAFT">The Craft</a></li>
+        <li><a href="#parle-shelf-section" data-cursor="SHELF">The Shelf</a></li>
+        <li><a href="#atelier-gallery" data-cursor="COLLECTION">Collection</a></li>
+        <li><a href="#parle-conveyor-section" data-cursor="BELT">Tasting Belt</a></li>
+        <li><a href="#heritage" data-cursor="HERITAGE">1929</a></li>
+        <li><a href="#parle-global-section" data-cursor="WORLDWIDE">Worldwide</a></li>
+        <li><a href="#parle-reviews-section" data-cursor="REVIEWS">Reviews</a></li>
+        <li><a href="#parle-crowd-section" data-cursor="PEOPLE">The People</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="#atelier-gallery" class="btn-header-minimal" data-cursor="EXPLORE">Explore</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ======================================================================
+         SECTION 1: HERO - PARLE COMMERCIAL FILM / AD VIDEO
+         ====================================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="hero-fullscreen-stage" id="hero-3d-showcase">
+        <video
+          id="hero-video"
+          class="hero-video"
+          src="assets/hero-scroll-video.mp4"
+          poster="assets/hero-last-frame.jpg"
+          autoplay
+          muted
+          playsinline
+          preload="auto"
+          aria-label="Parle Commercial Film"
+        ></video>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 2: PINNED SCROLL DECONSTRUCTION - ULTRA 3D EXPLODED VIEW
+         ====================================================================== -->
+    <section class="anatomy-section" id="anatomy">
+      <div class="anatomy-pin-wrapper" id="anatomy-pin">
+        <div class="anatomy-header">
+          <span class="eyebrow">01 / THE ICON DECONSTRUCTED</span>
+          <h2 class="display-heading">Four Layers of <em>Perfection</em></h2>
+        </div>
+
+        <div class="anatomy-stage-grid">
+          <!-- Architectural Pinpoint SVG Leader Lines & Pulsing Nodes -->
+          <svg class="anatomy-pointer-svg" viewBox="0 0 1440 580" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <!-- Pointer 1: Left Top Card -> Layer 1 (Top Embossed Parle-G Crust) -->
+            <g class="pointer-group active" id="pointer-1">
+              <polyline class="pointer-line" points="355,155 495,155 642,142" />
+              <circle class="pointer-origin" cx="355" cy="155" r="4" />
+              <circle class="pointer-pulse" cx="642" cy="142" r="14" />
+              <circle class="pointer-dot" cx="642" cy="142" r="5.5" />
+            </g>
+
+            <!-- Pointer 2: Left Bottom Card -> Layer 2 (26-Point Scalloped Rim) -->
+            <g class="pointer-group" id="pointer-2">
+              <polyline class="pointer-line" points="355,415 485,415 588,268" />
+              <circle class="pointer-origin" cx="355" cy="415" r="4" />
+              <circle class="pointer-pulse" cx="588" cy="268" r="14" />
+              <circle class="pointer-dot" cx="588" cy="268" r="5.5" />
+            </g>
+
+            <!-- Pointer 3: Right Top Card -> Layer 3 (Honeycomb Crumb Lattice) -->
+            <g class="pointer-group" id="pointer-3">
+              <polyline class="pointer-line" points="1085,155 955,155 828,358" />
+              <circle class="pointer-origin" cx="1085" cy="155" r="4" />
+              <circle class="pointer-pulse" cx="828" cy="358" r="14" />
+              <circle class="pointer-dot" cx="828" cy="358" r="5.5" />
+            </g>
+
+            <!-- Pointer 4: Right Bottom Card -> Layer 4 (Sun-Ripened Wheat & Milk) -->
+            <g class="pointer-group" id="pointer-4">
+              <polyline class="pointer-line" points="1085,415 955,415 805,468" />
+              <circle class="pointer-origin" cx="1085" cy="415" r="4" />
+              <circle class="pointer-pulse" cx="805" cy="468" r="14" />
+              <circle class="pointer-dot" cx="805" cy="468" r="5.5" />
+            </g>
+          </svg>
+
+          <!-- Left Minimal Callouts -->
+          <div class="anatomy-callouts-left">
+            <div class="spec-card active" id="spec-card-1">
+              <span class="spec-index">01 / TOP CRUST</span>
+              <h3 class="spec-title">Embossed Parle-G Seal</h3>
+              <p class="spec-body">Golden-baked upper crust stamped with sixteen steam-release docker pinholes.</p>
+            </div>
+            <div class="spec-card" id="spec-card-2">
+              <span class="spec-index">02 / OUTER CROWN</span>
+              <h3 class="spec-title">26-Point Scalloped Rim</h3>
+              <p class="spec-body">Fluted caramelized perimeter engineered for an unmistakable golden snap.</p>
+            </div>
+          </div>
+
+          <!-- Center Ultra-Realistic 3D Exploding Layer Stage -->
+          <div class="exploded-biscuit-stage" id="exploded-stage">
+            <div class="biscuit-3d-frame" id="biscuit-3d-frame">
+              <div class="progressive-layer-stack" id="progressive-layer-stack">
+                <div class="layer-band layer-band-1 active" id="layer-band-1">
+                  <img src="assets/anatomy-stage-1.jpg?v=4" alt="Layer 1: Embossed Parle-G Top Crust" />
+                </div>
+                <div class="layer-band layer-band-2" id="layer-band-2">
+                  <img src="assets/anatomy-stage-2.jpg?v=4" alt="Layer 2: 26-Point Scalloped Rim" />
+                </div>
+                <div class="layer-band layer-band-3" id="layer-band-3">
+                  <img src="assets/anatomy-stage-3.jpg?v=4" alt="Layer 3: Porous Honeycomb Crumb" />
+                </div>
+                <div class="layer-band layer-band-4" id="layer-band-4">
+                  <img src="assets/anatomy-stage-4.jpg?v=4" alt="Layer 4: Sun-Ripened Wheat & Milk" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Minimal Callouts -->
+          <div class="anatomy-callouts-right">
+            <div class="spec-card" id="spec-card-3">
+              <span class="spec-index">03 / CORE MATRIX</span>
+              <h3 class="spec-title">Honeycomb Crumb Lattice</h3>
+              <p class="spec-body">Airy roasted wheat structure formulated to absorb warm chai in 3.2 seconds.</p>
+            </div>
+            <div class="spec-card" id="spec-card-4">
+              <span class="spec-index">04 / FOUNDATION</span>
+              <h3 class="spec-title">Sun-Ripened Wheat &amp; Milk</h3>
+              <p class="spec-body">Pure Indian whole wheat grains, fine flour, and rich creamy milk nourishment.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="anatomy-footer-bar">
+          <div class="anatomy-layer-indicators" id="anatomy-layer-indicators">
+            <button class="layer-pill active" data-step="0" type="button"><span>01</span> Top Crust</button>
+            <button class="layer-pill" data-step="1" type="button"><span>02</span> Scalloped Rim</button>
+            <button class="layer-pill" data-step="2" type="button"><span>03</span> Crumb Lattice</button>
+            <button class="layer-pill" data-step="3" type="button"><span>04</span> Wheat &amp; Milk</button>
+          </div>
+          <div class="scroll-scrub-track">
+            <div class="scroll-scrub-fill" id="anatomy-scrub-fill"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 2B: THE PARLE-G & HOUSE OF PARLE PRODUCT SHELF (SHADCN)
+         ====================================================================== -->
+    <section id="parle-shelf-section" class="border-b border-[rgba(26,19,14,0.08)] bg-[#f3f1ed]">
+      <div id="parle-shelf-root"></div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 3: HORIZONTAL SCROLL GALLERY - SIGNATURE COLLECTION
+         ====================================================================== -->
+    <section class="horizontal-gallery-section" id="atelier-gallery">
+      <div class="gallery-pin-container" id="gallery-pin">
+        <div class="gallery-top-bar">
+          <div>
+            <span class="eyebrow">02 / SIGNATURE COLLECTION</span>
+            <h2 class="display-heading" style="font-size: clamp(2rem, 3.5vw, 3.2rem);">Iconic <em>Creations</em></h2>
+          </div>
+          <div class="gallery-counter" id="gallery-counter">01 / 05</div>
+        </div>
+
+        <div class="horizontal-track" id="horizontal-track">
+
+          <!-- 01: PARLE-G GOLD (FREELY FLOATING 360° 3D CREATION) -->
+          <article class="product-monolith-card" data-bg="#FFFFFF">
+            <div class="monolith-content">
+              <div>
+                <span class="monolith-category">01 • EST. 1939 • WORLD'S #1 SELLING BISCUIT</span>
+                <h3 class="monolith-title">Parle-G Gold</h3>
+                <p class="monolith-desc">
+                  First baked in Vile Parle in 1939 as <em>Parle Gluco</em> to bring wholesome nourishment to every Indian home. Crafted from sun-ripened Indian wheat, pure skimmed milk solids, and golden sugar syrup, stamped with 16 steam-release pinholes and a 26-point scalloped crown.
+                </p>
+              </div>
+              <div class="monolith-tasting-notes">
+                <div class="note-box">
+                  <span class="note-label">ORIGIN</span>
+                  <span class="note-val">Vile Parle, 1939</span>
+                </div>
+                <div class="note-box">
+                  <span class="note-label">PALATE</span>
+                  <span class="note-val">Roasted Wheat &amp; Malt</span>
+                </div>
+                <div class="note-box">
+                  <span class="note-label">ARCHITECTURE</span>
+                  <span class="note-val">26 Scallops • 16 Vents</span>
+                </div>
+                <div class="note-box">
+                  <span class="note-label">RITUAL</span>
+                  <span class="note-val">3.2s Hot Chai Dip</span>
+                </div>
+              </div>
+            </div>
+            <div class="monolith-visual" data-cursor="360° SPIN">
+              <div class="turntable-3d-rotor" data-edge="#C67D24">
+                <div class="rotor-face rotor-front">
+                  <img src="assets/parle-g-white-intact.jpg" alt="Parle-G Gold Front" />
+                </div>
+                <div class="rotor-face rotor-back">
+                  <img src="assets/parle-g-white-intact.jpg" alt="Parle-G Gold Back" />
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 02: HIDE & SEEK (FREELY FLOATING 360° 3D CREATION) -->
+          <article class="product-monolith-card" data-bg="#FFFFFF">
+            <div class="monolith-content">
+              <div>
+                <span class="monolith-category">02 • EST. 1996 • PLATINA RESERVE</span>
+                <h3 class="monolith-title">Hide &amp; Seek Milano</h3>
+                <p class="monolith-desc">
+                  Debuted in 1996 as India's very first moulded chocolate chip cookie. Its signature diagonal fluted ridges cradle over 28% rich dark Belgian-style chocolate chips, allowing you to nibble crisp cocoa shortbread row by row along the diagonal grooves.
+                </p>
+              </div>
+              <div class="monolith-tasting-notes">
+                <div class="note-box">
+                  <span class="note-label">ORIGIN</span>
+                  <span class="note-val">Platina Line, 1996</span>
+                </div>
+                <div class="note-box">
+                  <span class="note-label">PALATE</span>
+                  <span class="note-val">28% Dark Choco Chips</span>
+                </div>
+                <div class="note-box">
+                  <span class="note-label">CRAFT</span>
+                  <span class="note-val">Diagonal Moulded Flutes</span>
+                </div>
+                <div class="note-box">
+                  <span class="note-label">RITUAL</span>
+                  <span class="note-val">Trace the Ridges</span>
+                </div>
+              </div>
+            </div>
+            <div class="monolith-visual" data-cursor="360° SPIN">
+              <div class="turntable-3d-rotor" data-edge="#3D1F0E">
+                <div class="rotor-face rotor-front">
+                  <img src="assets/hideseek-white-3d.jpg" alt="Hide and Seek Cookie Front" />
+                </div>
+                <div class="rotor-face rotor-back">
+                  <img src="assets/hideseek-white-3d.jpg" alt="Hide and Seek Cookie Back" />
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 03: MELODY (FREELY FLOATING 360° 3D CREATION) -->
+          <article class="product-monolith-card" data-bg="#FFFFFF">
+            <div class="monolith-content">
+              <div>
+                <span class="monolith-category">03 • EST. 1983 • CONFECTIONERY ICON</span>
+                <h3 class="monolith-title">Melody Chocolaty</h3>
+                <p class="monolith-desc">
+                  The twin-layered confection that sparked India's most famous question: <em>"Melody itni chocolaty kyun hai?"</em> Slow-cooked golden butterscotch caramel forms a chewy outer shell around a dense, velvety dark chocolate truffle ganache core.
+                </p>
+              </div>
+              <div class="monolith-tasting-notes">
+                <div class="note-box">
+                  <span class="note-label">ORIGIN</span>
+                  <span class="note-val">Vile Parle, 1983</span>
+                </div>
+                <div class="note-box">
+                  <span class="note-label">EXTERIOR</span>
+                  <span class="note-val">Butterscotch Caramel</span>
+                </div>
+                <div class="note-box">
+                  <span class="note-label">INNER CORE</span>
+                  <span class="note-val">Dark Cocoa Truffle</span>
+                </div>
+                <div class="note-box">
+                  <span class="note-label">SIGNATURE</span>
+                  <span class="note-val">Dual-Core Confection</span>
+                </div>
+              </div>
+            </div>
+            <div class="monolith-visual" data-cursor="360° SPIN">
+              <div class="turntable-3d-rotor" data-edge="#8E4716">
+                <div class="rotor-face rotor-front">
+                  <img src="assets/melody-white-3d.jpg" alt="Melody Chocolaty Front" />
+                </div>
+                <div class="rotor-face rotor-back">
+                  <img src="assets/melody-white-3d.jpg" alt="Melody Chocolaty Back" />
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 04: MONACO & KRACKJACK (FREELY FLOATING 360° 3D CREATION) -->
+          <article class="product-monolith-card" data-bg="#FFFFFF">
+            <div class="monolith-content">
+              <div>
+                <span class="monolith-category">04 • EST. 1942 &amp; 1972 • SAVORY &amp; SWEET CRACKERS</span>
+                <h3 class="monolith-title">Monaco &amp; Krackjack</h3>
+                <p class="monolith-desc">
+                  Pioneers of Indian high-tea crackers: Monaco (1942) is laminated eighteen times for a feather-light, sea-salted golden puff, while Krackjack (1972) balances crystalline sugar glaze with brisk savory salt in one unmistakable snap.
+                </p>
+              </div>
+              <div class="monolith-tasting-notes">
+                <div class="note-box">
+                  <span class="note-label">ORIGIN</span>
+                  <span class="note-val">1942 &amp; 1972 Classics</span>
+                </div>
+                <div class="note-box">
+                  <span class="note-label">PALATE</span>
+                  <span class="note-val">Sweet &amp; Sea-Salted</span>
+                </div>
+                <div class="note-box">
+                  <span class="note-label">CRAFT</span>
+                  <span class="note-val">18-Fold Lamination</span>
+                </div>
+                <div class="note-box">
+                  <span class="note-label">RITUAL</span>
+                  <span class="note-val">High-Tea Canapés</span>
+                </div>
+              </div>
+            </div>
+            <div class="monolith-visual" data-cursor="360° SPIN">
+              <div class="turntable-3d-rotor" data-edge="#D69438">
+                <div class="rotor-face rotor-front">
+                  <img src="assets/monaco-white-3d.jpg" alt="Parle Monaco Front" />
+                </div>
+                <div class="rotor-face rotor-back">
+                  <img src="assets/monaco-white-3d.jpg" alt="Parle Monaco Back" />
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 05: KACCHA MANGO & KISMI (FREELY FLOATING 360° 3D CREATION) -->
+          <article class="product-monolith-card" data-bg="#FFFFFF">
+            <div class="monolith-content">
+              <div>
+                <span class="monolith-category">05 • EST. 1929 &amp; 1963 • BOTANICAL SWEETHOUSE</span>
+                <h3 class="monolith-title">Kaccha Mango &amp; Kismi</h3>
+                <p class="monolith-desc">
+                  Direct descendants of Mohanlal Dayal Chauhan's founding 1929 Swadeshi candy workshop. Translucent emerald-green spun sugar captures the sharp tang of raw Indian Kairi mangoes, alongside Kismi's slow-simmered Malabar cardamom milk toffee.
+                </p>
+              </div>
+              <div class="monolith-tasting-notes">
+                <div class="note-box">
+                  <span class="note-label">ORIGIN</span>
+                  <span class="note-val">1929 Founding Atelier</span>
+                </div>
+                <div class="note-box">
+                  <span class="note-label">PALATE</span>
+                  <span class="note-val">Raw Kairi &amp; Elaichi</span>
+                </div>
+                <div class="note-box">
+                  <span class="note-label">CRAFT</span>
+                  <span class="note-val">Spun Sugar &amp; Caramel</span>
+                </div>
+                <div class="note-box">
+                  <span class="note-label">HERITAGE</span>
+                  <span class="note-val">Swadeshi Sweethouse</span>
+                </div>
+              </div>
+            </div>
+            <div class="monolith-visual" data-cursor="360° SPIN">
+              <div class="turntable-3d-rotor" data-edge="#228B46">
+                <div class="rotor-face rotor-front">
+                  <img src="assets/mango-white-3d.jpg" alt="Kaccha Mango Bite Front" />
+                </div>
+                <div class="rotor-face rotor-back">
+                  <img src="assets/mango-white-3d.jpg" alt="Kaccha Mango Bite Back" />
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 3B: PARLE LIVE TASTING CONVEYOR BELT (REACT SHADCN COMPONENT)
+         ====================================================================== -->
+    <section id="parle-conveyor-section" class="border-t border-[rgba(26,19,14,0.08)] bg-white py-12" style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto; padding-left: 0; padding-right: 0;">
+      <div id="parle-conveyor-root" style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto;"></div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 4: THE 1929 HERITAGE CHRONICLE
+         ====================================================================== -->
+    <section class="heritage-section" id="heritage">
+      <div class="heritage-intro-grid">
+        <div>
+          <span class="eyebrow">03 / HERITAGE</span>
+          <h2 class="display-heading">Born in Vile Parle, <em>1929.</em></h2>
+        </div>
+        <p class="heritage-lead">
+          Founded by Mohanlal Dayal Chauhan with twelve artisans and a Swadeshi vision to craft world-class confectionery in India.
+        </p>
+      </div>
+
+      <div class="heritage-archival-banner" id="archival-banner">
+        <video class="archival-video" src="assets/heritage-baking-video.mp4" autoplay loop muted playsinline preload="auto"></video>
+      </div>
+
+      <!-- Clean Vertical Scroll-Scrubbed Timeline -->
+      <div class="timeline-container" id="timeline-container">
+        <div class="timeline-spine-track">
+          <div class="timeline-spine-fill" id="timeline-spine-fill"></div>
+        </div>
+
+        <div class="timeline-row">
+          <div class="timeline-card">
+            <div class="timeline-year-giant">1929</div>
+            <h3>The First Confectionery Atelier</h3>
+            <p>Mohanlal Dayal Chauhan establishes the House of Parle in Vile Parle, Mumbai.</p>
+          </div>
+          <div class="timeline-node"></div>
+          <div class="timeline-meta-quote">"Crafted by Indians, for every Indian home."</div>
+        </div>
+
+        <div class="timeline-row">
+          <div class="timeline-meta-quote" style="text-align: right;">"Wholesome nourishment for all."</div>
+          <div class="timeline-node"></div>
+          <div class="timeline-card">
+            <div class="timeline-year-giant">1939</div>
+            <h3>Parle Gluco Is Baked</h3>
+            <p>The first golden glucose biscuits emerge from Parle ovens, democratizing a former colonial luxury.</p>
+          </div>
+        </div>
+
+        <div class="timeline-row">
+          <div class="timeline-card">
+            <div class="timeline-year-giant">1982</div>
+            <h3>Reborn as Parle-G</h3>
+            <p>An icon in red and gold becomes the heartbeat of Indian mornings and tea-time rituals.</p>
+          </div>
+          <div class="timeline-node"></div>
+          <div class="timeline-meta-quote">"G Mane Genius."</div>
+        </div>
+
+        <div class="timeline-row">
+          <div class="timeline-meta-quote" style="text-align: right;">"Over one billion packs crafted every month."</div>
+          <div class="timeline-node"></div>
+          <div class="timeline-card">
+            <div class="timeline-year-giant">Today</div>
+            <h3>World's #1 Biscuit Legacy</h3>
+            <p>Relished across 100+ nations with 130+ bakeries and the luxury Parle Platina collection.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 5: PARLE WORLDWIDE BRANCHES & GLOBAL FOOTPRINT (D3 GLOBE)
+         ====================================================================== -->
+    <section id="parle-global-section" class="border-t border-[rgba(26,19,14,0.08)] bg-white">
+      <div id="parle-globe-root"></div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 6: 3D TESTIMONIALS MARQUEE - GLOBAL PARLE REVIEWS
+         ====================================================================== -->
+    <section id="parle-reviews-section" class="border-t border-[rgba(26,19,14,0.08)] bg-white">
+      <div id="parle-reviews-root"></div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 7: CROUD CANVAS - THE PEOPLE OF PARLE (GSAP CANVAS COMPONENT)
+         ====================================================================== -->
+    <section id="parle-crowd-section" class="border-t border-[rgba(26,19,14,0.08)] bg-white relative overflow-hidden">
+      <div id="parle-crowd-root"></div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       CLEAN GRAND FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-giant-wordmark">PARLE • 1929</div>
+      <div class="footer-bottom">
+        <span>HOUSE OF PARLE • VILE PARLE, MUMBAI</span>
+        <span>EST. 1929</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Three.js WebGL 3D Engine, GSAP, ScrollTrigger & Lenis Smooth Scroll -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="app.js?v=16"></script>
+
+  <!-- React 18 & D3 Core Libraries -->
+  <script src="react.production.min.js"></script>
+  <script src="react-dom.production.min.js"></script>
+  <script src="d3.min.js"></script>
+
+  <!-- Precompiled React Mount Components (Runs natively on both file:/// and http://localhost:8000 without CORS or Babel lag) -->
+  <script src="shelf-mount.js?v=60"></script>
+  <script src="conveyor-mount.js?v=60"></script>
+  <script src="globe-mount.js?v=40"></script>
+  <script src="testimonials-mount.js?v=50"></script>
+  <script src="crowd-mount.js?v=46"></script>
+</body>
+</html>
